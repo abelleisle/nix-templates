@@ -1,4 +1,5 @@
-{ stdenv
+{ pkgs
+, stdenv
 ,...
 }:
 let
@@ -32,12 +33,28 @@ stdenv.mkDerivation {
 
   # We don't need to build because we're downloading prebuilt binaries
   dontBuild = true;
+
+  # We need to patch
+  nativeBuildInputs = with pkgs; [
+    autoPatchelfHook
+  ];
+
+  buildInputs = with pkgs; [
+    expat
+    gmp
+    guile
+    mpfr
+    ncurses6
+    python310
+    xz
+    zlib
+  ];
   
   # TODO check to see if these hooks work
   installPhase = ''
-    # runHook preInstall
+    runHook preInstall
     mkdir -p $out
     cp -r . $out
-    # runHook postInstall
+    runHook postInstall
   '';
 }
