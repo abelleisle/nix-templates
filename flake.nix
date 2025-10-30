@@ -17,6 +17,11 @@
         description = "Linux kernel cross compilation for arm";
       };
 
+      zig = {
+        path = ./zig;
+        description = "Zig development environment";
+      };
+
     };
   };
 }
