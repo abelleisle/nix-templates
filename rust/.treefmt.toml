@@ -9,9 +9,9 @@ command = "deadnix"
 options = []
 includes = [ "*.nix" ]
 
-[formatter.rustfmt]
-command = "rustfmt"
-includes = [ "*.rs" ]
+# [formatter.rustfmt]
+# command = "rustfmt"
+# includes = [ "*.rs" ]
 
 # TypeScript/JavaScript formatter
 # [formatter.prettier]

@@ -37,12 +37,11 @@
     let
       pkgs = nixpkgs.legacyPackages.${system};
 
-      # Read rust-toolchain.toml to get the channel
-      toolchainFile = builtins.fromTOML (builtins.readFile ./rust-toolchain.toml);
-      toolchainChannel = toolchainFile.toolchain.channel;
-
       # Create Rust toolchain from fenix based on rust-toolchain.toml
-      rustToolchain = fenix.packages.${system}.${toolchainChannel}.toolchain;
+      rustToolchain = fenix.packages.${system}.fromToolchainFile {
+        file = ./rust-toolchain.toml;
+        sha256 = "sha256-CwS2GOhrcw3iGwM1v4BNT+PZGiIobPHC5XeSzQ78dFs=";
+      };
 
       # treefmt configuration
       treefmtEval = treefmt-nix.lib.evalModule pkgs {
@@ -50,7 +49,7 @@
         programs = {
           alejandra.enable = true;
           deadnix.enable = true;
-          rustfmt.enable = true;
+          rustfmt.enable = false;
         };
       };
 
@@ -84,6 +83,7 @@
         buildInputs = with pkgs; [
           # Rust toolchain from fenix
           rustToolchain
+          rust-analyzer
 
           # Formatting tools
           treefmtEval.config.build.wrapper
