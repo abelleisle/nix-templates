@@ -2,26 +2,31 @@
   description = "A collection of flake templates";
 
   outputs = { self }:
-  {
-    defaultTemplate = self.templates.trivial;
+    {
+      defaultTemplate = self.templates.trivial;
 
-    templates = {
+      templates = {
 
-      trivial = {
-        path = ./trivial;
-        description = "A very basic flake";
+        trivial = {
+          path = ./trivial;
+          description = "A very basic flake";
+        };
+
+        linux-cross-arm = {
+          path = ./linux-cross-arm;
+          description = "Linux kernel cross compilation for arm";
+        };
+
+        rust = {
+          path = ./rust;
+          description = "Basic rust template with git and formatting hooks";
+        };
+
+        zig = {
+          path = ./zig;
+          description = "Zig development environment";
+        };
+
       };
-
-      linux-cross-arm = {
-        path = ./linux-cross-arm;
-        description = "Linux kernel cross compilation for arm";
-      };
-
-      zig = {
-        path = ./zig;
-        description = "Zig development environment";
-      };
-
     };
-  };
 }
