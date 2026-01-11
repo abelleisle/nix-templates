@@ -22,6 +22,11 @@
           description = "Basic rust template with git and formatting hooks";
         };
 
+        shell = {
+          path = ./shell;
+          description = "Flake-based shell environment";
+        };
+
         zig = {
           path = ./zig;
           description = "Zig development environment";
