@@ -8,8 +8,8 @@ This is a stub mirror. The source code lives on Forgejo.
 
 | Branch | Commit | Link |
 |--------|--------|------|
-| `master` | `8c42a687bbc5` | [view](https://git.bitcicle.com/andy/nix-templates/src/commit/8c42a687bbc5e14f273ac5fd827cc50453c47986) |
+| `master` | `1c0c6e340b1b` | [view](https://git.bitcicle.com/andy/nix-templates/src/commit/1c0c6e340b1bdbda8ef49496e443e7ecc70a4653) |
 
 ---
 
-*Last updated: 2026-03-01 18:43:08 UTC*
+*Last updated: 2026-06-14 18:20:31 UTC*
